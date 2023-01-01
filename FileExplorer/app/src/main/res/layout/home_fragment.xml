@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#efefef"
+    android:weightSum="3">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="vertical"
+        android:padding="5dp">
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            >
+
+            <soup.neumorphism.NeumorphCardView
+                android:id="@+id/home_item_internalstorage"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                >
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <ImageView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_internalstorage">
+
+                    </ImageView>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.7"
+                            android:text="메인저장소"
+                            android:gravity="center"
+                            android:textStyle="bold"
+
+                            android:textSize="15sp">
+                        </TextView>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:gravity="top|center_horizontal"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:text="2.5GB"
+
+                            android:textSize="11sp">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </soup.neumorphism.NeumorphCardView>
+
+            <LinearLayout
+                android:id="@+id/home_item_sdcard123"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <ImageView
+                    android:padding="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_sdcard">
+
+                </ImageView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.7"
+                        android:text="저장공간 용량"
+                        android:gravity="center"
+                        android:textStyle="bold"
+
+                        android:textSize="15sp">
+                    </TextView>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:gravity="top|center_horizontal"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="2.5GB"
+
+
+                        android:textSize="11sp">
+
+                    </TextView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/home_item_sdcard"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <ImageView
+                    android:padding="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_sdcard">
+
+                </ImageView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.7"
+                        android:text="SD 카드"
+                        android:gravity="center"
+                        android:textStyle="bold"
+
+                        android:textSize="15sp">
+                    </TextView>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:gravity="top|center_horizontal"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="2.5GB"
+
+
+                        android:textSize="11sp">
+
+                    </TextView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.3"
+            >
+            <TextView
+                android:text="카테고리"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </TextView>
+
+        </LinearLayout>
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            >
+            <LinearLayout
+                android:id="@+id/home_item_image"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <ImageView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_image">
+
+                </ImageView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.7"
+                        android:text="사진"
+                        android:gravity="center"
+                        android:textStyle="bold"
+
+                        android:textSize="15sp">
+                    </TextView>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:gravity="top|center_horizontal"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="2.5GB"
+
+
+                        android:textSize="11sp">
+
+                    </TextView>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/home_item_download"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <ImageView
+                    android:padding="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_download">
+
+                </ImageView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.7"
+                        android:text="다운로드"
+                        android:gravity="center"
+                        android:textStyle="bold"
+
+                        android:textSize="15sp">
+                    </TextView>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:gravity="top|center_horizontal"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="2.5GB"
+
+
+                        android:textSize="11sp">
+
+                    </TextView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/home_item_video"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <ImageView
+                    android:padding="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_play">
+
+                </ImageView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.7"
+                        android:text="동영상"
+                        android:gravity="center"
+                        android:textStyle="bold"
+
+                        android:textSize="15sp">
+                    </TextView>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:gravity="top|center_horizontal"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="2.5GB"
+
+
+                        android:textSize="11sp">
+
+                    </TextView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            >
+            <LinearLayout
+                android:id="@+id/home_item_docs"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <ImageView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_docs">
+
+                </ImageView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.7"
+                        android:text="문서"
+                        android:gravity="center"
+                        android:textStyle="bold"
+
+                        android:textSize="15sp">
+                    </TextView>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:gravity="top|center_horizontal"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="2.5GB"
+
+
+                        android:textSize="11sp">
+
+                    </TextView>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/home_item_music"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <ImageView
+                    android:padding="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_music">
+
+                </ImageView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.7"
+                        android:text="음악"
+                        android:gravity="center"
+                        android:textStyle="bold"
+
+                        android:textSize="15sp">
+                    </TextView>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:gravity="top|center_horizontal"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="2.5GB"
+
+
+                        android:textSize="11sp">
+
+                    </TextView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/home_item_apk"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <ImageView
+                    android:padding="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_apk">
+
+                </ImageView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.7"
+                        android:text="앱"
+                        android:gravity="center"
+                        android:textStyle="bold"
+
+                        android:textSize="15sp">
+                    </TextView>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:gravity="top|center_horizontal"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="2.5GB"
+
+
+                        android:textSize="11sp">
+
+                    </TextView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="1.7">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black">
+
+        </View>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="최근 파일"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="8dp">
+
+        </TextView>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycle_recent"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>
