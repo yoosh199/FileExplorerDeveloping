@@ -5,11 +5,14 @@
         android:id="@+id/nav_home"
         android:title="홈"
         android:icon="@drawable/ic_home"
+
         ></item>
     <item
         android:id="@+id/nav_internal"
         android:title="내부저장소"
         android:icon="@drawable/ic_internalstorage"
         ></item>
+
+
 
 </menu>

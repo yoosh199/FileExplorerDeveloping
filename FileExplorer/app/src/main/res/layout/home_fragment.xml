@@ -4,12 +4,11 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="#efefef"
-    android:weightSum="3">
+    android:background="#efefef">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"
+        android:layout_weight="2.2"
         android:orientation="vertical"
         android:padding="5dp">
         <LinearLayout
@@ -20,26 +19,24 @@
             android:orientation="horizontal"
             >
 
-            <soup.neumorphism.NeumorphCardView
-                android:id="@+id/home_item_internalstorage"
+            <LinearLayout
                 android:layout_weight="1"
-                android:layout_width="0dp"
+                    android:layout_width="0dp"
                 android:layout_height="match_parent"
-                >
-                <LinearLayout
-
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:gravity="center"
                     android:orientation="vertical">
-                    <ImageView
 
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:padding="5dp"
-                        android:src="@drawable/ic_internalstorage">
+                    <soup.neumorphism.NeumorphImageButton
+                        android:id="@+id/home_item_internalstorage"
+                        style="@style/Widget.Neumorph.Button"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_internalstorage_32px"
+                        >
 
-                    </ImageView>
+                    </soup.neumorphism.NeumorphImageButton>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -47,8 +44,8 @@
                         >
                         <TextView
                             android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="0.7"
+                            android:layout_height="wrap_content"
+
                             android:text="메인저장소"
                             android:gravity="center"
                             android:textStyle="bold"
@@ -56,10 +53,11 @@
                             android:textSize="15sp">
                         </TextView>
                         <TextView
+                            android:id="@+id/home_item_internalstorage_storage"
                             android:layout_width="match_parent"
                             android:gravity="top|center_horizontal"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+
                             android:text="2.5GB"
 
                             android:textSize="11sp">
@@ -70,7 +68,8 @@
 
 
                 </LinearLayout>
-            </soup.neumorphism.NeumorphCardView>
+
+
 
             <LinearLayout
                 android:id="@+id/home_item_sdcard123"
@@ -78,56 +77,48 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:orientation="vertical">
-                <ImageView
-                    android:padding="5dp"
+                <TextView
+                    android:id="@+id/available_storage"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:src="@drawable/ic_sdcard">
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:textSize="35sp"
+                    android:gravity="center"
+                    android:text="5GB">
 
-                </ImageView>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    >
+                </TextView>
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="0.7"
-                        android:text="저장공간 용량"
-                        android:gravity="center"
-                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:text="사용가능 공간"
+                        android:gravity="top|center_horizontal"
+                        android:textColor="@color/black"
 
                         android:textSize="15sp">
                     </TextView>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:gravity="top|center_horizontal"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:text="2.5GB"
 
-
-                        android:textSize="11sp">
-
-                    </TextView>
-
-                </LinearLayout>
 
             </LinearLayout>
+
+
             <LinearLayout
-                android:id="@+id/home_item_sdcard"
+                android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:gravity="center"
                 android:orientation="vertical">
-                <ImageView
-                    android:padding="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:src="@drawable/ic_sdcard">
+                <soup.neumorphism.NeumorphImageButton
+                    android:id="@+id/home_item_sdcard"
+                    style="@style/Widget.Neumorph.Button"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_sdcard_32px"
+                    >
 
-                </ImageView>
+                </soup.neumorphism.NeumorphImageButton>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -135,21 +126,21 @@
                     >
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="0.7"
-                        android:text="SD 카드"
+                        android:layout_height="wrap_content"
+
+                        android:text="sd 카드"
                         android:gravity="center"
                         android:textStyle="bold"
 
                         android:textSize="15sp">
                     </TextView>
                     <TextView
+
                         android:layout_width="match_parent"
                         android:gravity="top|center_horizontal"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:text="2.5GB"
+                        android:layout_height="wrap_content"
 
+                        android:text="0.0GB"
 
                         android:textSize="11sp">
 
@@ -157,9 +148,8 @@
 
                 </LinearLayout>
 
+
             </LinearLayout>
-
-
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -169,6 +159,8 @@
             <TextView
                 android:text="카테고리"
                 android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="17sp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -183,19 +175,23 @@
             android:orientation="horizontal"
             >
             <LinearLayout
-                android:id="@+id/home_item_image"
+
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:orientation="vertical">
-                <ImageView
+                <soup.neumorphism.NeumorphImageButton
+                    android:id="@+id/home_item_image"
+                    style="@style/Widget.Neumorph.Button"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_image_32px"
+                    >
 
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:padding="5dp"
-                    android:src="@drawable/ic_image">
+                </soup.neumorphism.NeumorphImageButton>
 
-                </ImageView>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -206,40 +202,34 @@
                         android:layout_height="0dp"
                         android:layout_weight="0.7"
                         android:text="사진"
-                        android:gravity="center"
+                        android:gravity="center|top"
                         android:textStyle="bold"
 
                         android:textSize="15sp">
                     </TextView>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:gravity="top|center_horizontal"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:text="2.5GB"
 
-
-                        android:textSize="11sp">
-
-                    </TextView>
 
                 </LinearLayout>
 
 
             </LinearLayout>
             <LinearLayout
-                android:id="@+id/home_item_download"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:orientation="vertical">
-                <ImageView
-                    android:padding="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:src="@drawable/ic_download">
+                <soup.neumorphism.NeumorphImageButton
+                    android:id="@+id/home_item_download"
+                    style="@style/Widget.Neumorph.Button"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_download_32px"
+                    >
 
-                </ImageView>
+                </soup.neumorphism.NeumorphImageButton>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -250,39 +240,33 @@
                         android:layout_height="0dp"
                         android:layout_weight="0.7"
                         android:text="다운로드"
-                        android:gravity="center"
+                        android:gravity="center|top"
                         android:textStyle="bold"
 
                         android:textSize="15sp">
                     </TextView>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:gravity="top|center_horizontal"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:text="2.5GB"
 
-
-                        android:textSize="11sp">
-
-                    </TextView>
 
                 </LinearLayout>
 
             </LinearLayout>
             <LinearLayout
-                android:id="@+id/home_item_video"
+
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:orientation="vertical">
-                <ImageView
-                    android:padding="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:src="@drawable/ic_play">
+                <soup.neumorphism.NeumorphImageButton
+                    android:id="@+id/home_item_video"
+                    style="@style/Widget.Neumorph.Button"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_video_32px"
+                    >
 
-                </ImageView>
+                </soup.neumorphism.NeumorphImageButton>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -293,22 +277,12 @@
                         android:layout_height="0dp"
                         android:layout_weight="0.7"
                         android:text="동영상"
-                        android:gravity="center"
+                        android:gravity="center|top"
                         android:textStyle="bold"
 
                         android:textSize="15sp">
                     </TextView>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:gravity="top|center_horizontal"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:text="2.5GB"
 
-
-                        android:textSize="11sp">
-
-                    </TextView>
 
                 </LinearLayout>
 
@@ -324,19 +298,22 @@
             android:orientation="horizontal"
             >
             <LinearLayout
-                android:id="@+id/home_item_docs"
+
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:orientation="vertical">
-                <ImageView
+                <soup.neumorphism.NeumorphImageButton
+                    android:id="@+id/home_item_docs"
+                    style="@style/Widget.Neumorph.Button"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/docs"
+                    >
 
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:padding="5dp"
-                    android:src="@drawable/ic_docs">
-
-                </ImageView>
+                </soup.neumorphism.NeumorphImageButton>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -347,40 +324,44 @@
                         android:layout_height="0dp"
                         android:layout_weight="0.7"
                         android:text="문서"
-                        android:gravity="center"
+                        android:gravity="center|top"
                         android:textStyle="bold"
 
                         android:textSize="15sp">
                     </TextView>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:gravity="top|center_horizontal"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:text="2.5GB"
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:gravity="top|center_horizontal"-->
+<!--                        android:layout_height="0dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:text="2.5GB"-->
 
 
-                        android:textSize="11sp">
+<!--                        android:textSize="11sp">-->
 
-                    </TextView>
+<!--                    </TextView>-->
 
                 </LinearLayout>
 
 
             </LinearLayout>
             <LinearLayout
-                android:id="@+id/home_item_music"
+
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:orientation="vertical">
-                <ImageView
-                    android:padding="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:src="@drawable/ic_music">
+                <soup.neumorphism.NeumorphImageButton
+                    android:id="@+id/home_item_music"
+                    style="@style/Widget.Neumorph.Button"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_music_32px"
+                    >
 
-                </ImageView>
+                </soup.neumorphism.NeumorphImageButton>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -391,39 +372,33 @@
                         android:layout_height="0dp"
                         android:layout_weight="0.7"
                         android:text="음악"
-                        android:gravity="center"
+                        android:gravity="center|top"
                         android:textStyle="bold"
 
                         android:textSize="15sp">
                     </TextView>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:gravity="top|center_horizontal"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:text="2.5GB"
 
-
-                        android:textSize="11sp">
-
-                    </TextView>
 
                 </LinearLayout>
 
             </LinearLayout>
             <LinearLayout
-                android:id="@+id/home_item_apk"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:orientation="vertical">
-                <ImageView
-                    android:padding="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:src="@drawable/ic_apk">
+                <soup.neumorphism.NeumorphImageButton
+                    android:id="@+id/home_item_apk"
 
-                </ImageView>
+                    style="@style/Widget.Neumorph.Button"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_apk_32px"
+                    >
+
+                </soup.neumorphism.NeumorphImageButton>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -434,22 +409,12 @@
                         android:layout_height="0dp"
                         android:layout_weight="0.7"
                         android:text="앱"
-                        android:gravity="center"
+                        android:gravity="center|top"
                         android:textStyle="bold"
 
                         android:textSize="15sp">
                     </TextView>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:gravity="top|center_horizontal"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:text="2.5GB"
 
-
-                        android:textSize="11sp">
-
-                    </TextView>
 
                 </LinearLayout>
 
@@ -458,11 +423,14 @@
 
         </LinearLayout>
     </LinearLayout>
+
     <LinearLayout
+
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_weight="1.7">
+
+>
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -488,9 +456,4 @@
         </androidx.recyclerview.widget.RecyclerView>
 
     </LinearLayout>
-
-
-
-
-
 </LinearLayout>
