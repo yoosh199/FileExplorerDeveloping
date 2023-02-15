@@ -2,6 +2,8 @@ package com.yoosh.fileexplorer;
 
 import android.content.Context;
 import android.net.Uri;
+import android.os.Handler;
+import android.os.Message;
 import android.text.format.Formatter;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,6 +17,8 @@ import androidx.annotation.NonNull;
 import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.io.File;
 import java.util.ArrayList;
 
@@ -25,17 +29,42 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     private final FileClickListener listener;
     private final String TAG = "LOG";
 
+    private static Handler handler;
+
     public RecyclerAdapter(ArrayList<File> fileList, Context context, FileClickListener listener) {
         this.fileList = fileList;
         this.context = context;
         this.listener = listener;
     }
 
+    class ImageRunnable implements Runnable{
+
+        ViewHolder holder;
+        int position;
+
+        public ImageRunnable(ViewHolder holder, int position) {
+            this.holder = holder;
+            this.position = position;
+        }
+
+        @Override
+        public void run() {
+
+            handler.sendEmptyMessage(0);
+
+        }
+    }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.recycler_item, parent, false);
+        View view;
+
+
+        view = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.recycler_item, parent, false);
+
+
 
         return new ViewHolder(view);
     }
@@ -106,8 +135,28 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                     ||fileList.get(position).getName().toLowerCase().endsWith(".png")){
 //            holder.item_image.setImageResource(R.drawable.ic_image);
                 //이미지 경우 사진 올려서 보여주기
+                //여기 쓰레드로 보여주기
+
+                handler = new Handler(){
+                    @Override
+                    public void handleMessage(@NonNull Message msg) {
+
+                    }
+                };
+
                 Uri uri = FileProvider.getUriForFile(context.getApplicationContext(), context.getApplicationContext().getPackageName() + ".provider", fileList.get(position));
-                holder.item_image.setImageURI(uri);
+
+                Glide
+                        .with(context)
+                        .load(uri)
+                        .centerCrop()
+                        .into(holder.item_image);
+
+//                ImageRunnable imageRunnable = new ImageRunnable(holder, position);
+//                Thread t = new Thread(imageRunnable);
+//                t.start();
+//                Uri uri = FileProvider.getUriForFile(context.getApplicationContext(), context.getApplicationContext().getPackageName() + ".provider", fileList.get(position));
+//                holder.item_image.setImageURI(uri);
             }
             else if(fileList.get(position).getName().toLowerCase().endsWith(".pdf")){
                 holder.item_image.setImageResource(R.drawable.ic_pdf);

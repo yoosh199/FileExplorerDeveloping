@@ -1,5 +1,6 @@
 package com.yoosh.fileexplorer.Fragments;
 
+import android.app.ProgressDialog;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -17,6 +18,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.yoosh.fileexplorer.MainActivity;
 import com.yoosh.fileexplorer.R;
 import com.yoosh.fileexplorer.FileClickListener;
 import com.yoosh.fileexplorer.FileOpener;
@@ -36,7 +38,6 @@ public class HomeFragment extends Fragment implements FileClickListener {
     RecyclerView recycle_recent;
     TextView available_storage,home_item_internalstorage_storage;
     File storage;
-
 
     @Nullable
     @Override
@@ -109,8 +110,12 @@ public class HomeFragment extends Fragment implements FileClickListener {
         CategorizedFragment categorizedFragment = new CategorizedFragment();
         Bundle bundle = new Bundle();
         bundle.putString("type", type);
+
+
         categorizedFragment.setArguments(bundle);
         getFragmentManager().beginTransaction().replace(R.id.frame_layout, categorizedFragment).addToBackStack(null).commit();
+
+
     }
 
     private void displayFiles() {
@@ -122,6 +127,7 @@ public class HomeFragment extends Fragment implements FileClickListener {
 
 
         recycle_recent = view.findViewById(R.id.recycle_recent);
+        recycle_recent.setHasFixedSize(true);
         recycle_recent.setLayoutManager(new GridLayoutManager(getContext(),1));
         ArrayList<File> fileList = new ArrayList<>();
 

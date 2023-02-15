@@ -1,5 +1,6 @@
 package com.yoosh.fileexplorer.Fragments;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.format.Formatter;
@@ -41,6 +42,7 @@ public class InternalStorageFragment extends Fragment implements FileClickListen
     RecyclerAdapter recyclerAdapter;
     private final String TAG = "LOG";
     View view;
+    ProgressDialog progressDialog;
 
     @Nullable
     @Override
@@ -49,6 +51,9 @@ public class InternalStorageFragment extends Fragment implements FileClickListen
         view = inflater.inflate(R.layout.internalstorage_fragment,container,false);
 
 
+        progressDialog = new ProgressDialog(getContext());
+        progressDialog.setTitle("Loading...");
+        progressDialog.show();
         //저장소 초기화
         storage = new File(System.getenv("EXTERNAL_STORAGE"));
 
@@ -89,13 +94,14 @@ public class InternalStorageFragment extends Fragment implements FileClickListen
         //디렉토리 클릭시 여기서 새로운 프래그먼트 띄워줘야한다 근데 접근은 RecyclerAdapter 에서 밖에 못함
         //리스너를 인터페이스로 하나 만들고 RecyclerAdapter 로 전달시켜줘야함
         recyclerView= (RecyclerView) view.findViewById(R.id.recycler_internal);
+        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(),1));
         fileList = findFiles();
         recyclerAdapter = new RecyclerAdapter(fileList,getContext(),this);
         recyclerView.setAdapter(recyclerAdapter);
 
      
-
+        progressDialog.dismiss();
     }
 
     private ArrayList<File> findFiles() {

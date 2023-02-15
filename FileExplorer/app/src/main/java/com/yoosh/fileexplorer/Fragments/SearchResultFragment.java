@@ -1,8 +1,11 @@
 package com.yoosh.fileexplorer.Fragments;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.text.format.Formatter;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +21,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.yoosh.fileexplorer.MainActivity;
 import com.yoosh.fileexplorer.R;
 import com.yoosh.fileexplorer.FileClickListener;
 import com.yoosh.fileexplorer.FileOpener;
@@ -43,39 +47,66 @@ public class SearchResultFragment extends Fragment implements FileClickListener 
     String fileName;
     String[] dialog_items = {"자세히","변경","삭제"};
     ArrayList<File> fileList;
+    ProgressDialog progressDialog;
+    Handler handler;
+
+
+    class NewRunnable implements Runnable{
+
+        @Override
+        public void run() {
+            fileList = findFiles(new File(System.getenv("EXTERNAL_STORAGE")));
+            handler.sendEmptyMessage(0);
+        }
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.search_fragment,container,false);
+
         recyclerView = view.findViewById(R.id.recycler_search);
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),1));
+
+
         fileName = getArguments().getString("files");
-        runtimePermission();
         return view;
     }
 
-    private void runtimePermission() {
-        Dexter.withContext(getContext()).withPermissions(
-                Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.READ_EXTERNAL_STORAGE
-        ).withListener(new MultiplePermissionsListener() {
-            @Override
-            public void onPermissionsChecked(MultiplePermissionsReport multiplePermissionsReport) {
-                displayFiles();
-            }
-            @Override
-            public void onPermissionRationaleShouldBeShown(List<PermissionRequest> list, PermissionToken permissionToken) {
-                permissionToken.continuePermissionRequest();
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
+        progressDialog=new ProgressDialog(getActivity());
+        progressDialog.setTitle("파일을 불러오는중 입니다...");
+        progressDialog.show();
+
+        handler=new Handler(){
+
+            @Override
+            public void handleMessage(@NonNull Message msg) {
+                displayFiles();
+                progressDialog.dismiss();
             }
-        }).check();
+        };
+
+        NewRunnable newRunnable = new NewRunnable();
+
+        Thread t = new Thread(newRunnable);
+
+        t.start();
+
     }
 
     private void displayFiles() {
-        fileList = findFiles(new File(System.getenv("EXTERNAL_STORAGE")));
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),1));
-        recyclerAdapter = new RecyclerAdapter(fileList,getContext(),this);
-        recyclerView.setAdapter(recyclerAdapter);
+        if(fileList.size()==0){
+            LayoutInflater.from(getActivity()).inflate(R.layout.not_found, (ViewGroup) view,true);
+        }
+        else{
+            recyclerAdapter = new RecyclerAdapter(fileList,getContext(),this);
+            recyclerView.setAdapter(recyclerAdapter);
+        }
 
     }
 
@@ -99,7 +130,6 @@ public class SearchResultFragment extends Fragment implements FileClickListener 
             }
 
         }
-
         return list;
     }
     @Override
@@ -122,7 +152,6 @@ public class SearchResultFragment extends Fragment implements FileClickListener 
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         final int[] location = new int[1];
         builder.setItems(dialog_items, new DialogInterface.OnClickListener() {
-
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 
